@@ -18,7 +18,9 @@ async function iniciarSesion() {
     });
     
     const respuesta = await request.text();
-    if (respuesta == 'OK') {
+    if (respuesta != 'FAIL') {
+        localStorage.email = datos.email;
+        localStorage.token = respuesta;
         window.location.href = 'usuarios.html';
     }else{
         alert("Las credenciales son incorrectas, porfavor intenta nuevamente");
