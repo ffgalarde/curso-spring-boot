@@ -17,10 +17,10 @@ async function iniciarSesion() {
       body:JSON.stringify(datos)
     });
     
-    const respuesta = await request.text();
+    const respuesta = await request.json();
     if (respuesta != 'FAIL') {
         localStorage.email = datos.email;
-        localStorage.token = respuesta;
+        localStorage.token = respuesta.password;
         window.location.href = 'usuarios.html';
     }else{
         alert("Las credenciales son incorrectas, porfavor intenta nuevamente");
